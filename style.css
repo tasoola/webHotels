@@ -1,0 +1,531 @@
+
+
+body {
+	margin:0;
+	position:relative;
+	z-index:-2;
+}
+
+/* HEADER   */
+#header {
+	height: 11.9em;;
+}
+
+.home {
+	background-color: #1F2C9D;
+	top:0;
+	position:relative;
+}
+
+/* navigation */
+
+nav {
+	position: relative;
+}
+
+nav .icon {
+	display: none;
+}
+
+nav ul {
+	max-width: 1140px;
+	margin: 0 auto;
+	position:relative;
+	top:0;
+	left:24.5%;
+	list-style-type:none;
+	padding-right: 30px;
+}
+
+nav ul li {
+	float:left;
+}
+
+nav ul li a {
+  display: block;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 14px 16px;
+  text-decoration:none;
+  text-align:center;
+  color:#F9813A;
+}
+
+nav ul li a:hover {
+	color:#F9813A;
+	background-color:#E7E7DE;
+}
+
+#menu-item4 a {
+	color:white;
+	background-color:#F9813A;
+}
+
+#menu-item4 a:hover {
+	text-decoration: underline;
+}
+
+
+/* ===========================BODY========================================== */
+
+/* HOME PAGE */
+
+/* SLIDESHOW */
+main { 
+	background-color: #E7E7DE;
+}
+
+
+.slideshow {
+	max-width: 100%;
+	position: relative;
+	margin: auto;
+}
+
+.slide { display: none;}
+
+.dot {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active {
+	background-color: #717171;
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 2s;
+	animation-name: fade;
+	animation-duration: 2s;
+}
+
+@-webkit-keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+  
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+.text-banner {
+	text-align: center;
+	font-size: 25px;
+}
+
+.text-banner h2 {
+	color: #1F2C9D;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.text-banner a {
+	color: #1F2C9D;
+	background-color: #F9813A;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-decoration: none;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.text-banner a:hover {
+	font-size: 30px;
+	border: #1F2C9D solid 3px;
+}
+
+main h2 {
+	color:#1F2C9D;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	padding: 10px 10px 0 15px;
+	margin-top: 26px;
+}
+
+
+.location-list {
+	position: relative;
+	display: flex;
+}
+
+.location-selection {
+	position: relative;
+	border: #E7E7DE solid 7px;
+}
+
+.location-selection img:hover {
+	opacity: 0.6;
+}
+
+.location-selection img {
+	display: block;
+	width: 100% ;
+}
+
+.listContainer h4 {
+	margin: 8px;
+	color: #222831;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+/*==========================================MAIN==============================================================*/
+/* ========================================================================================================= */
+
+main {
+	width:100%;
+	float:left;
+}
+
+main h1 {
+	color:#1F2C9D;
+	padding: 40px 40px 0 40px;
+	margin: 0 10px;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.userpage-wrap {
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-align: center;
+}
+
+.userpage-wrap a {
+	text-decoration: none;
+	padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* =======================================HOTEL INFO PAGE============================================================== */
+/* ========================================================================================================= */
+.hotel-info-page-wrap {
+	display: flex;
+}
+
+.info-container {
+	width:60%;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	padding:20px;
+	margin:30px;
+}
+
+.info-container h1 {
+	color:#F9813A;
+	padding: 10px;
+	margin:10px;
+}
+
+.info-container h3 {
+	color: #1F2C9D;
+}
+
+.descr-list { 
+	display: flex;
+}
+
+.descr-list .descr {
+	width:50%;
+}
+
+.gallery-container {
+	width:40%;
+	margin:50px;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+}
+
+
+
+
+
+
+/* =======================================FORMS============================================================== */
+/* ========================================================================================================= */
+.form-container {
+	position: relative;
+	padding: 50px 50px 100px 50px;
+	display: block;
+	background-color: #E7E7DE;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.form-container h1 {
+	color: #F9813A;
+	padding: 15px 0 0 15px;
+}
+
+.form {
+	padding: 10px 0 0 25px;
+	font-weight: bold;
+	font-size: 22px;
+	color: #1F2C9D;
+}
+
+.form input {
+	background: transparent;
+	border:0;
+	border-bottom: 2px solid #F9813A;
+	font-size: 17px;
+}
+
+#val-code {
+	text-align: center;
+}
+
+.btn {
+	color: #1F2C9D;
+	background-color: #F9813A;
+	border: 0;
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 3px;
+	font-size: 20px;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	cursor: pointer;
+}
+
+.btn:hover {
+	color: #F9813A;
+	background-color: #1F2C9D;
+}
+
+#redirect-form {
+	margin: 25px;
+}
+
+#redirect-form a {
+	text-decoration: none;
+	color:#1F2C9D;
+}
+
+#redirect-form a:hover {
+	text-decoration: underline;
+}
+
+.check {
+	color:#F9813A;
+	font-size: 18px;
+}
+
+fieldset {
+	border: 2px solid #1F2C9D;
+	border-radius: 10px;
+}
+
+legend {
+	color:#F9813A;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.image-page {
+	display: flex;
+}
+
+.upload-form { width:40%; margin:15px; }
+
+.hotel-gallery { width:60%; margin:15px; }
+
+.gallery-images {
+	width:250px;
+	vertical-align: middle;
+}
+
+#gallery-container {
+	display: block ruby;
+}
+
+
+.thumbnail-container {
+	position: relative;
+}
+
+.overlay {
+	position: absolute; 
+	bottom: 0; 
+	background: whitesmoke;
+	border: 2px solid #222831;
+	width: fit-content;
+	transition: .5s ease;
+	opacity:0;
+	padding: 5px;
+}
+
+.overlay a {
+	padding: 5px;
+	text-align: center;
+}
+  
+.thumbnail-container:hover .overlay {
+	opacity: 1;
+}
+
+.results h1 {
+	color: #F9813A;
+	padding: 15px 0 0 15px;
+}
+
+.search-page-wrap {
+	display: flex;
+}
+
+.results {
+	padding: 50px;
+}
+
+.result {
+	background-color: #a7a79f;
+	border: 1px solid #717171;
+	border-radius: 5px;
+	width: 600px;
+	margin: 5px;
+	text-align: center;
+	padding: 0 10px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.result h3 {
+	font-size: 25px;
+	margin: 15px;
+}
+
+.result a {
+	text-decoration: none;
+	color: whitesmoke;
+}
+
+.result a:hover {
+	text-decoration: underline;
+}
+
+.result:hover {
+	background-color: #F9813A;
+}
+
+.result-message {
+	color:tomato;
+	font-weight:bold;
+	text-align:center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.page-sel {
+	color:whitesmoke;
+	background-color: #F9813A;
+	padding:2px 15px;
+	text-decoration: none;
+}
+
+.page-sel:hover {
+	color: #F9813A;
+	background-color: #1F2C9D;
+}
+
+.selected-page {
+	background-color: #1F2C9D;
+	color:whitesmoke;
+	padding:2px 15px;
+}
+
+.dbcheck {
+	color:tomato;
+	font-size: 15px;
+}
+
+/* ================================== FOOTER ============================================================== */
+/* ========================================================================================================= */
+footer {
+	background-color: #1F2C9D;
+}
+
+.footer-container {
+	margin:auto;
+}
+
+.footer-column-container {
+	float: left ;
+}
+
+.footer-column {
+	list-style-type: none;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin:0 30px 30px 30px;
+	padding: 0 0 30px 70px;
+}
+
+.footer-column a {
+	color: white;
+	text-decoration:none;
+}
+
+.footer-column a:hover {
+	text-decoration: underline;
+}
+
+footer h3 {
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin:0 30px 5px 30px;
+	padding: 70px 0 0 70px;
+	color:#F9813A;
+}
+
+.bottom {
+	text-align: center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin: 0;
+	color: white;
+	background-color: #F9813A;
+}
+
+/* ======================================================== MEDIA QUERIES ============================================================= */
+/* ==================================================================================================================================== */
+
+@media screen and (max-width:1200px) {
+	#search-page-wrap { display: inline; }
+
+	#image-page { display: inline; }	
+}
+
+@media screen and (max-width:1000px) {
+	#header { height: 7.7rem; }
+}
+
+@media screen and (max-width:900px) {
+	#hotel-info-page-wrap { display: inline; }
+
+	#location-list { display: inline; }
+}
+
+@media screen and (max-width:720px) {
+	#result { width:400px; }
+}
+
+@media screen and (max-width:600px) {
+	#header { 
+		height: 6rem; 
+	}
+
+	nav ul { margin:0; padding: 0; left: 0; }
+}
+
+@media screen and (max-width:520px) {
+	#result { width:300px; }
+
+	#dualform-wrap { padding: 0; }
+
+	#hotelname, #location, #address, #businessEmail { width: 350px; }
+}
+
+@media screen and (max-width:580px) {
+	#upload-image { 
+		width:250px;
+	}
+
+	#upload-image input { font-size: 15px; width: 250px; }
+}
+
+
+

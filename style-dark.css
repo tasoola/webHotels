@@ -1,0 +1,47 @@
+.form-container { background-color: #222831; }
+
+#main { background-color: #222831; } 
+
+h3 { color:#848383; }
+
+.info-container h3 { color:#848383; }
+
+h4 { color:whitesmoke; }
+
+li { color: whitesmoke; }
+
+p { color: whitesmoke; }
+
+#menu-item4 > a { color: black; }
+
+nav ul li a:hover { background-color: #222831; }
+
+#header { background-color: black; }
+
+#gallery-container { border: 2px solid #848383; }
+
+#fieldset { border: 2px solid #848383; }
+
+#main h2 { color: #848383; }
+
+main h1 { color:#848383; }
+
+label { color: #848383;}
+
+.btn { color:whitesmoke; }
+
+.btn:hover { background-color: #848383; }
+
+.location-selection { border: #222831 solid 7px; }
+
+.text-banner a { color: whitesmoke; }
+
+.text-banner a:hover { border:whitesmoke solid 3px; }
+
+#redirect-form a { color: #848383; }
+
+.form input { color:whitesmoke; }
+
+.result h3 { color:#222831; }
+
+.listContainer h4 { color: whitesmoke;}
