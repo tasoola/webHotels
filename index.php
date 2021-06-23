@@ -14,7 +14,7 @@
     <main id="main">
 	    <div class="slideshow">
 			<div class="slide fade">
-				<a href="search-page.php">
+				<a href="search-page.php?search[name]=&search[location]=&search[rating]=&search[equipment][]=">
 					<img src="images/slideshow1.jpg" alt="slideshow1" style="width:100%"/>
 				</a>
 			</div>
@@ -66,7 +66,7 @@
 		<br><br>
 		<div class="text-banner">
 			<h2> Ψάχνεις ξενοδοχείο για προορισμό στην Ελλάδα; </h2>
-			<h3><a href="browse.php"> Βρες το καλύτερο για εσένα! </a></h3>
+			<h3><a href="search-page.php?search[name]=&search[location]=&search[rating]=&search[equipment][]="> Βρες το καλύτερο για εσένα! </a></h3>
 			<h2> ~ </h2>
 			<h2> Είσαι ιδιοκτήτης ξενοδοχείου; </h2>
 			<?php 

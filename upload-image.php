@@ -29,28 +29,32 @@
                     <fieldset id="gallery-container">
                         <legend>Οι εικόνες σας</legend>
                         <?php
-           
-                            $fileArray= scandir('uploaded-pictures');
-                            $filesInFolder= count($fileArray);
+
+                            if ( is_dir( 'uploaded-pictures/'.$_SESSION['hotelid'] ) ) {
+                                $fileArray= scandir('uploaded-pictures/'.$_SESSION['hotelid']);
+                                $filesInFolder= count($fileArray);
                             
-                            if ( $filesInFolder>2 ) {
-                                for ($i=2; $i<=$filesInFolder-1;  $i++) {
-                                    if (!is_dir('uploaded-pictures/'.$fileArray[$i])) {
-                                        $descr = getImageDescr('uploaded-pictures/'.$fileArray[$i]);
-                                        echo "  <div class=\"thumbnail-container\">
-                                                    <a href='uploaded-pictures/$fileArray[$i]'>
-                                                        <img class=\"gallery-images\" src=\"uploaded-pictures/$fileArray[$i]\" alt=\"".$descr."\"/>
-                                                    </a> <br>
-                                                    <div class=\"overlay\">
-                                                        <a href='del-image.php?file=uploaded-pictures/$fileArray[$i]'>
-                                                            <img style=\"width:30px;\" src=\"images/delete.png\" onclick=\"confirm('Πρόκειται να διαγραφεί η φωτογραφία. Συνέχεια;')\"/>
-                                                        </a>".$descr."
+                                if ( $filesInFolder>2 ) {
+                                    for ($i=2; $i<=$filesInFolder-1;  $i++) {
+                                        if (!is_dir('uploaded-pictures/'.$_SESSION['hotelid'].'/'.$fileArray[$i]) ) {
+                                            $descr = getImageDescr('uploaded-pictures/'.$_SESSION['hotelid'].'/'.$fileArray[$i]);
+                                            echo "  <div class=\"thumbnail-container\">
+                                                        <a href='uploaded-pictures/".$_SESSION['hotelid']."/".$fileArray[$i]."'>
+                                                            <img class=\"gallery-images\" src=\"uploaded-pictures/".$_SESSION['hotelid']."/".$fileArray[$i]."\" alt=\"".$descr."\"/>
+                                                        </a> <br>
+                                                        <div class=\"overlay\">
+                                                            <a href='del-image.php?file=uploaded-pictures/".$_SESSION['hotelid']."/".$fileArray[$i]."'>
+                                                                <img style=\"width:30px;\" src=\"images/delete.png\" onclick=\"confirm('Πρόκειται να διαγραφεί η φωτογραφία. Συνέχεια;')\"/>
+                                                            </a>".$descr."
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 ";
+                                        }
                                     }
+                                } else {
+                                    echo '<p>-- Δεν έχετε ανεβάσει κάποια εικόνα ακόμα! --</p>';
                                 }
-                            } else {
+                            }else {
                                 echo '<p>-- Δεν έχετε ανεβάσει κάποια εικόνα ακόμα! --</p>';
                             }
                         ?>                        

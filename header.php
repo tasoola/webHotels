@@ -24,7 +24,7 @@
 						<a href="index.php">Αρχική</a>
 					</li>
 					<li id="menu-item2">
-						<a href="search-page.php">Περιήγηση</a>
+						<a href="search-page.php?search[name]=&search[location]=&search[rating]=&search[equipment][]=">Περιήγηση</a>
 					</li>
 					<?php 
 						if ( !isset($_SESSION['username']) ) { ?>

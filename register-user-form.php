@@ -133,7 +133,7 @@
 
                 <label for="remail">Email</label>
                 <br>
-                <input type="email" placeholder="Εισάγετε email" name="remail" id="remail" size="25" maxlength="25" 
+                <input type="email" placeholder="Εισάγετε email" name="remail" id="remail" size="25" maxlength="100" 
                     onfocus="highlightOn('remail');" onblur="dbcheck(this.value,'e');highlightOff('remail');"/>
                 <br>
                 <div id="edbcheck" class="dbcheck"></div>
@@ -141,13 +141,13 @@
 
                 <label for="rcemail">Επιβεβαίωση email</label>
                 <br>
-                <input type="email" placeholder="Επιβεβαιώστε το email" name="rcemail" id="rcemail" size="25" maxlength="50" 
+                <input type="email" placeholder="Επιβεβαιώστε το email" name="rcemail" id="rcemail" size="25" maxlength="100" 
                     onfocus="highlightOn('rcemail');" onblur="highlightOff('rcemail');"/>
                 <br><br>
 
                 <label for="rpassword">Password</label>
                 <br>
-                <input type="password" placeholder="Εισάγετε κωδικό" name="rpassword" id="rpassword" size="25" maxlength="25" 
+                <input type="password" placeholder="Εισάγετε κωδικό" name="rpassword" id="rpassword" size="25" maxlength="50" 
                     onfocus="highlightOn('rpassword');" onblur="highlightOff('rpassword');"/>
                 <br>
                 <?php

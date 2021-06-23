@@ -43,14 +43,12 @@
     $ext = strtolower(substr($filename, -3));
     $new_filename = guid().'.'.$ext;
     
-    $copy = copy($_FILES['imagefile']['tmp_name'], 'uploaded-pictures/'.$new_filename);
-
 
 
     //database actions
     require('db-parameters.php');
     $result = false;
-    $imagePath = 'uploaded-pictures/'.$new_filename;
+    //$imagePath = 'uploaded-pictures/'.$new_filename;
     $imageDescr = "";
     if( isset($_POST['image-descr']) ) {
         $imageDescr = $_POST['image-descr'];
@@ -60,6 +58,20 @@
         $pdoObject = new PDO("mysql:host=$dbhost; dbname=$dbname;", $dbuser, $dbpass);
         $pdoObject -> exec('set names utf8');
         $pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+
+        $sql1 = 'SELECT imageID FROM images WHERE hotel_FK:=hotel_FK';
+        $statement1 = $pdoObject->prepare($sql1);
+        $statement1->execute( array( 'hotel_FK'=>$_SESSION['hotelid'] ) );
+        $statement1->fetch(PDO::FETCH_ASSOC);
+        $rows = $statement1->rowCount();
+        if ( $rows > 0 ) {
+            $imagePath = "uploaded-pictures/".$_SESSION['hotelid']."/".$new_filename;
+        } else {
+            mkdir("uploaded-pictures/".$_SESSION['hotelid']."/");
+            $imagePath = "uploaded-pictures/".$_SESSION['hotelid']."/".$new_filename;
+        }
+
+
 
         $sql = 'INSERT INTO images (imageName, description, type, user_FK, hotel_FK) 
             VALUES (:imageName, :description, :type, :user_FK, :hotel_FK )';
@@ -75,10 +87,13 @@
         exit();
     }
 
-    if ( !$result || !$copy ) {
+    if ( !$result ) {
         header("Location: upload-image.php?msg=Failed to execute query.");
         exit();
     } else {
+
+        $copy = copy($_FILES['imagefile']['tmp_name'], $imagePath);
+
         header("Location: upload-image.php?msg=Επιτυχής καταχώρηση εικόνας!");
     }
 

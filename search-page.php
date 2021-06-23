@@ -82,7 +82,7 @@
                         
                         if( !isset( $_GET['search'] ) || $emptySearch ) {
 
-                            $sql = "SELECT count(hotelid) as recCount FROM hotels";
+                            $sql = "SELECT COUNT(hotelid) as recCount FROM hotels";
 
                             $statement = $pdo->query($sql);
                             $record = $statement->fetch(PDO::FETCH_ASSOC);
@@ -135,7 +135,7 @@
 
                             $sql = "SELECT * FROM hotels WHERE " . $query. " ORDER BY businessTitle DESC LIMIT ".$startIndex.", ".$recordsPerPage.";";
                             $statement = $pdo->query($sql);
-                            echo '<p class="result-message">Αποτελέσματα για: '.$query.'</p>';
+                            //echo '<p class="result-message">Αποτελέσματα για: '.$query.'</p>';
                         }
                         
                         $noResult = false;
@@ -171,7 +171,9 @@
                             
                             for ($i=1; $i<=$pages; $i++) {
                                 if ($i!=$curPage) { ?>
-                                    <a class="page-sel" href="results.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+                                    <a class="page-sel" href="search-page.php?page=<?php echo $i ?>&search[name]=<?php echo $_GET['search']['name'] ?>&search[location]=<?php echo $_GET['search']['location'] ?>&search[rating]=<?php echo $_GET['search']['rating'] ?>&search[equipment][]=<?php echo implode( ",", $_GET['search']['equipment']) ?>">
+                                        <?php echo $i ?>
+                                    </a>
 
                         <?php   
                                 } else

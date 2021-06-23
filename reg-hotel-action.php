@@ -88,8 +88,8 @@
     }
 
 
-    if ( strlen($_POST['description']) > 500 ) {
-        header("Location: reg-dualform.php?msg=Η περιγραφή είναι πολύ μεγάλη. Επιτρεπτό όριο: 500 χαρακτήρες.");
+    if ( strlen($_POST['description']) > 800 ) {
+        header("Location: reg-dualform.php?msg=Η περιγραφή είναι πολύ μεγάλη. Επιτρεπτό όριο: 800 χαρακτήρες.");
         exit();
     }
     // ΤΕΛΟΣ ΕΛΕΓΧΩΝ
@@ -153,11 +153,18 @@
         exit();
     }
 
+    require("functions.php");
     if ( $result==false ) { 
         header('Location: reg-dualform.php?msg=ERROR: failed to execute sql query');
         exit();
     } else { 
-        $_SESSION['hotelid'] = $_POST['hotelid'];
+
+        if ( $mode == 'update' ) {
+            $_SESSION['hotelid'] = $_POST['hotelid'];
+        } elseif ( $mode == 'insert' ) {
+            getHotelId($_SESSION['username']);
+        }
+        
         header('Location: user-page.php?msg=Επιτυχής καταχώρηση!');
         exit();
     }

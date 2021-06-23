@@ -26,7 +26,7 @@
         $rooms = null;
         $rating = null;
         $equipment_ckecked = array('','','','','');
-        $equipments = array( 'Πισίνα','Εστιατόριο - Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
+        $equipments = array( 'Πισίνα','Εστιατόριο-Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
         $businessEmail = '';
         $latitude = null;
         $longitude = null;
@@ -64,7 +64,7 @@
                 }
 
 
-                $equipments = array( 'Πισίνα','Εστιατόριο - Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
+                $equipments = array( 'Πισίνα','Εστιατόριο-Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
                 $businessEmail = $record['businessEmail'];
                 $longitude = $record['longitude'];
                 $latitude = $record['latitude'];

@@ -76,8 +76,68 @@
 		if ($result==true) {
 			return $descr;
 		} else {
-			return -1;
+			return "";
 		}
 	}
+
+	function getImageID($file) {
+		require('db-parameters.php');
+    	try {
+        	$pdoObject = new PDO("mysql:host=$dbhost; dbname=$dbname;", $dbuser, $dbpass);
+        	$pdoObject -> exec('set names utf8');
+
+        	$sql = 'SELECT hotel_FK FROM images WHERE imageName=:imageName';
+
+        	$statement = $pdoObject->prepare($sql);
+        	$statement->execute( array( ':imageName'=> $file )  );
+
+			if ( $record = $statement -> fetch() ) {
+				$result = true;
+				$hotelfk = $record['hotel_FK'];
+			} else  $result = false; 
+
+        	$statement->closeCursor();
+        	$pdoObject = null;
+
+    	} catch (PDOException $e) {
+        	echo 'PDO Exception: '.$e->getMessage();
+    	}
+
+		if ($result==true) {
+			return $hotelfk;
+		} else {
+			return "";
+		}
+	}
+
+	function getHotelId($userfk) {
+		require("db-parameters.php");
+		try {
+        	$pdoObject = new PDO("mysql:host=$dbhost; dbname=$dbname;", $dbuser, $dbpass);
+        	$pdoObject -> exec('set names utf8');
+
+			$sql1 = "SELECT hotelid FROM hotels WHERE username_FK=:username_FK";
+        	$statement1 = $pdoObject->prepare($sql1);
+        	$statement1->execute( array( 'username_FK'=>$userfk ) );
+        	$hotel = $statement1->fetch(PDO::FETCH_ASSOC);
+        	$hotelCount = $statement1->rowCount();
+        	if ( $hotelCount > 0 ) {
+            	$_SESSION['hotelid'] = $hotel['hotelid'];
+            	$_SESSION['mode'] = 'update';
+        	} else { $_SESSION['mode'] = 'insert'; }
+
+		} catch (PDOException $e) {
+        	echo 'PDO Exception: '.$e->getMessage();
+    	}
+
+		if ($result==true) {
+			return 1;
+		} else {
+			return 0;
+		}
+
+	}
+
+
 
 ?>

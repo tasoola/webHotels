@@ -30,6 +30,7 @@
             if ( $record = $statement -> fetch() ) {
                 $record_exists = true;
 
+                $hotelid = $record['hotelid'];
                 $hotelname = $record['businessTitle'];
                 $location = $record['location'];
                 $address = $record['address'];
@@ -44,7 +45,7 @@
                     $i++;
                 }
 
-                $equipments = array( 'Πισίνα','Εστιατόριο - Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
+                $equipments = array( 'Πισίνα','Εστιατόριο-Μπαρ','Κινηματογράφος','Γυμναστήριο','Παιδικές Δραστηριότητες' );
                 $businessEmail = $record['businessEmail'];
                 $longitude = $record['longitude'];
                 $latitude = $record['latitude'];
@@ -148,40 +149,44 @@
                     <legend>Eικόνες</legend>
                     <?php
                         require('functions.php');
-                        $fileArray= scandir('uploaded-pictures');
-                        $filesInFolder= count($fileArray);
-                        //print_r($fileArray);
-                        if ( $filesInFolder>2 ) {
-                            for ($i=2; $i<=$filesInFolder-1;  $i++) {
-                                if (!is_dir('uploaded-pictures/'.$fileArray[$i])) {
-                                    $descr = getImageDescr('uploaded-pictures/'.$fileArray[$i]);
-                                    if ( $viewMode == 'user' ) {
-                                        echo "  <div class=\"thumbnail-container\">
-                                                <a href='uploaded-pictures/$fileArray[$i]'>
-                                                    <img class=\"gallery-images\" src=\"uploaded-pictures/$fileArray[$i]\" alt=\"".$descr."\"/>
-                                                </a> <br>
-                                                <div class=\"overlay\">
-                                                    <a href='del-image.php?file=uploaded-pictures/$fileArray[$i]'>
-                                                        <img style=\"width:30px;\" src=\"images/delete.png\"/>
-                                                    </a>".$descr."
-                                                </div>
-                                            </div>
-                                            ";
-                                    } else {
-                                        echo "  <div class=\"thumbnail-container\">
-                                                <a href='uploaded-pictures/$fileArray[$i]'>
-                                                    <img class=\"gallery-images\" src=\"uploaded-pictures/$fileArray[$i]\" alt=\"".$descr."\"/>
-                                                </a>
-                                                <div class=\"overlay\">
-                                                    ".$descr."
-                                                </div> <br>
-                                            </div>
-                                            ";
-                                    }
+                        if ( is_dir( 'uploaded-pictures/'.$hotelid ) ) {
+                            $fileArray= scandir('uploaded-pictures/'.$hotelid);
+                            $filesInFolder= count($fileArray);
+                            //print_r($fileArray);
+                            if ( $filesInFolder>2 ) {
+                                for ($i=2; $i<=$filesInFolder-1;  $i++) {
+                                    if (!is_dir('uploaded-pictures/'.$hotelid.'/'.$fileArray[$i])) {
+                                        $descr = getImageDescr('uploaded-pictures/'.$hotelid.'/'.$fileArray[$i]);
+                                        if ( $viewMode == 'user' ) {
+                                            echo "  <div class=\"thumbnail-container\">
+                                                        <a href='uploaded-pictures/".$hotelid."/".$fileArray[$i]."'>
+                                                            <img class=\"gallery-images\" src=\"uploaded-pictures/".$hotelid."/".$fileArray[$i]."\" alt=\"".$descr."\"/>
+                                                        </a> <br>
+                                                        <div class=\"overlay\">
+                                                            <a href='del-image.php?file=uploaded-pictures/".$hotelid."/".$fileArray[$i]."'>
+                                                                <img style=\"width:30px;\" src=\"images/delete.png\"/>
+                                                            </a>".$descr."
+                                                        </div>
+                                                    </div>
+                                                ";
+                                        } else {
+                                            echo "  <div class=\"thumbnail-container\">
+                                                        <a href='uploaded-pictures/".$hotelid."/".$fileArray[$i]."'>
+                                                            <img class=\"gallery-images\" src=\"uploaded-pictures/".$hotelid."/".$fileArray[$i]."\" alt=\"".$descr."\"/>
+                                                        </a>
+                                                        <div class=\"overlay\">
+                                                            ".$descr."
+                                                        </div> <br>
+                                                    </div>
+                                                ";
+                                        }
                                     
+                                    }
                                 }
+                            } else {
+                                echo '<p>-- Δεν υπάρχουν ανεβασμένες εικόνες! --</p>';
                             }
-                        } else {
+                        }  else {
                             echo '<p>-- Δεν υπάρχουν ανεβασμένες εικόνες! --</p>';
                         }
                     ?>                        
