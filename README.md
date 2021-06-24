@@ -1,5 +1,5 @@
 # webHotels
-This is a project for CS Technical School on Web Development.
+This is a project for CS Technical School on Web Development and also my first website.
 It is not really good looking and needs SO much improving 
 so I'll try to improve it in the future.
 The page is supposed to be a Hotel Information page.
